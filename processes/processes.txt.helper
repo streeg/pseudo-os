@@ -1,0 +1,9 @@
+Neste módulo a equipe deve implementar um conjunto de algoritmos de escalonamento de CPU e escrever um programa que calcula uma série de estatísticas baseada nestes algoritmos. Os algoritmos de escalonamento a serem implementados são os seguintes:
+• FIFO: First-In, First-Out
+• SJF: Shortest Job First
+• RR: Round Robin (com quantum = 2)
+O módulo de gerência de processos deverá ler da entrada padrão uma lista de processos com seus respectivos tempos de chegada e de duração, e deverá imprimir na saída padrão uma tabela contendo os valores para as seguintes métricas:
+• Tempo médio de execução total do processo - turnaround;
+• Tempo médio de resposta;
+• Tempo médio de espera.
+Tempo de execução total do processo é a quantidade de tempo necessária para executar totalmente um processo, ou seja, é o tempo total entre a criação de um processo e seu término. Tempo de resposta é a quantidade de tempo entre a requisição de execução de um programa (quando ele é colocado na fila de pronto) e o seu tempo de ir para a execução (sistema de compartilhamento de tempo), isso significa que é o tempo que o processo demora para produzir cada resposta a uma requisição (assim, vamos considerar que é o tempo decorrido entre uma ida e outra para a CPU. Essa métrica é importante para processos interativos). E tempo de espera é a quantidade total de tempo que um processo aguardou na fila de prontos esperando para ser escalonado, ou seja, é o tempo que processo ficou esperando na fila de prontos. 

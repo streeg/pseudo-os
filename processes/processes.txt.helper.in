@@ -1,0 +1,16 @@
+#Exemplo de entrada
+
+linha = id do processo | $1ºnúmero = tempo de chegada do processo $2ºnúmero tempo de duração do processo
+
+Implementar algoritmos:
+
+Fist In Fist Out (FIFO)
+Shortest Job First (SJF)
+Round Robin (RR)
+
+-------------------------------
+
+0 20
+0 10
+4 6
+4 8

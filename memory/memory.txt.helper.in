@@ -1,0 +1,21 @@
+#Exemplo entrada
+
+A entrada é composta por uma série de números inteiros, um por linha, indicando, primeiro a quantidade de quadros (frames) disponíveis na memória RAM e, em seguida, a sequência de referências à memória.
+$1ºnúmero (primeira linha) = Quantidade de quadros (frames) disponíveis na memória RAM.
+$2ºnúmero (segunda linha) = Sequência de referências à memória.
+
+---------------------------------------------
+
+4
+1
+2
+3
+4
+1
+2
+5
+1
+2
+3
+4
+5
