@@ -2,11 +2,11 @@
 
 O trabalho de implementação da disciplina de SO (UnB), a ser desenvolvido em grupo com quatro
 componentes (Boris Marinho, Guilherme Andreúce, Pedro Henrique e Roberta Costa) compreenderá as seguintes fases:
-• Estudo teórico relacionado ao assunto do trabalho;
-• Apresentação da solução teórica dada ao problema;
-• Implementação da solução proposta;
-• Apresentação e explicação detalhada do código-fonte implementado;
-• Relatório explicando o processo de construção e o uso da aplicação.
+- Estudo teórico relacionado ao assunto do trabalho;
+- Apresentação da solução teórica dada ao problema;
+- Implementação da solução proposta;
+- Apresentação e explicação detalhada do código-fonte implementado;
+- Relatório explicando o processo de construção e o uso da aplicação.
 
 # Orientações específicas
 ## Problema
@@ -26,15 +26,15 @@ módulo escolhido. Os detalhes para a implementação desse pseudo-SO são descr
 Neste módulo a equipe deve implementar um conjunto de algoritmos de escalonamento de CPU e escrever
 um programa que calcula uma série de estatísticas baseada nestes algoritmos. Os algoritmos de
 escalonamento a serem implementados são os seguintes:
-• FIFO: First-In, First-Out
-• SJF: Shortest Job First
-• RR: Round Robin (com quantum = 2)
+- FIFO: First-In, First-Out
+- SJF: Shortest Job First
+- RR: Round Robin (com quantum = 2)
 O módulo de gerência de processos deverá ler da entrada padrão uma lista de processos com seus
 respectivos tempos de chegada e de duração, e deverá imprimir na saída padrão uma tabela contendo os
 valores para as seguintes métricas:
-• Tempo médio de execução total do processo - turnaround;
-• Tempo médio de resposta;
-• Tempo médio de espera.
+- Tempo médio de execução total do processo - turnaround;
+- Tempo médio de resposta;
+- Tempo médio de espera.
 Tempo de execução total do processo é a quantidade de tempo necessária para executar totalmente um
 processo, ou seja, é o tempo total entre a criação de um processo e seu término. Tempo de resposta é a
 quantidade de tempo entre a requisição de execução de um programa (quando ele é colocado na fila de
@@ -59,9 +59,9 @@ branco.
 Neste módulo a equipe deve escrever um programa para simular o funcionamento dos principais algoritmos
 de substituição de páginas estudados na disciplina. Os algoritmos de substituição de páginas a serem
 implementados são os seguintes:
-• FIFO (First In, First Out);
-• Segunda Chance (com o bit R sendo zerado a cada 3 referências feitas à memória);
-• LRU: (Least Recently Used ou Menos Recentemente Utilizado).
+- FIFO (First In, First Out);
+- Segunda Chance (com o bit R sendo zerado a cada 3 referências feitas à memória);
+- LRU: (Least Recently Used ou Menos Recentemente Utilizado).
 O programa deverá ler da entrada padrão um conjunto de número inteiros, dos quais o primeiro número
 representa a quantidade de quadros de memória disponíveis na RAM e os demais representam a sequência
 de referências às páginas, sempre um número por linha.
@@ -81,9 +81,9 @@ página obtidas com a utilização de cada um deles.
 Neste módulo a equipe deve escrever um programa para simular o funcionamento dos principais algoritmos
 de escalonamento de disco estudados na disciplina. Os algoritmos de escalonamento de disco a serem
 implementados são os seguintes:
-• FCFS (First Come, First Serve);
-• SSF (ou SSTF – braço inicialmente para baixo);
-• SCAN.
+- FCFS (First Come, First Serve);
+- SSF (ou SSTF – braço inicialmente para baixo);
+- SCAN.
 O programa deverá ler da entrada padrão um conjunto de número inteiros, no qual o primeiro número
 representa a quantidade de cilindros no disco, o segundo número representa o cilindro sobre o qual a cabeça
 de leitura do disco está inicialmente posicionada, e os demais representam uma sequência de requisições de
@@ -104,11 +104,11 @@ cilindros percorridos pela cabeça de leitura para atender todas as requisiçõe
 ### Estrutura do Programa
 Espera-se que o programa seja estruturado em, pelo menos, quatro grandes módulos: kernel,
 processo, memória e entrada/saída. Esses modelos devem ser:
-• Módulo Kernel – contém as chamadas para os demais módulos.
-• Módulo de Processos – classes e estruturas de dados relativas ao processo. Basicamente,
+-Módulo Kernel – contém as chamadas para os demais módulos.
+- Módulo de Processos – classes e estruturas de dados relativas ao processo. Basicamente,
 mantém informações específicas do processo.
-• Módulo de Memória – provê uma interface de abstração de memória RAM.
-• Módulo de Entrada/Saída – trata a alocação do braço do disco para realização de escrita/leitura
+- Módulo de Memória – provê uma interface de abstração de memória RAM.
+- Módulo de Entrada/Saída – trata a alocação do braço do disco para realização de escrita/leitura
 nos blocos do disco para os processos.
 É importante ressaltar também que outros módulos podem ser utilizados, caso sejam necessários.
 
