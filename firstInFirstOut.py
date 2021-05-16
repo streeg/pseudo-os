@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class firstInFirstOut:
 
     def processData(self, listOfNumbers):
