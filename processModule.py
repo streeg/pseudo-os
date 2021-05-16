@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+
 import sys
 import firstInFirstOut as ff
+import shortestJobFirst as sjf
 class Process():
     
     def receiveContent(self, processNumber):
@@ -22,8 +25,9 @@ class Process():
         
 
     
-    def shortestJobFirst(self, listOfNumbers):
-        print("shortestJobFirst algorithm")    
+    def sjf(self, listOfNumbers):
+        shortestJobFirst = sjf.shortestJobFist()
+        shortestJobFirst.processData(listOfNumbers)
 
     
     def roundRobin(self, listOfNumbers):
