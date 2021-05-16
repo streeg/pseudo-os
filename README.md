@@ -2,7 +2,6 @@
 
 The implementation work of the discipline of Operational Systems (UNB), shown below was developed in a group (Boris Marinho, Guilherme Andreúce, Pedro Henrique and Roberta Costa).
 
-# Guidelines
 ## Problem
 Implementation of a multiprogrammed pseudo-SO, composed of a Process Manager, a Memory Manager and an Input / Output Manager.
 The process manager must be able to apply the scheduling algorithm defined by parameter by the OS user.
