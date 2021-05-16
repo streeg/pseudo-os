@@ -11,3 +11,6 @@ import fileReader as fr
 
 reader = fr.Reader()
 reader.readModule()
+
+process = pm.Process()
+process.printProcess()
