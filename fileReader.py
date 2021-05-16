@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 import processModule  as pm
 
@@ -10,6 +11,6 @@ class Reader():
         if(chosenModule == "1" and fileName == "processes/processes.txt"):
             process = pm.Process()
             numberList = process.manipulableContent(fileName)
-            process.firstInFirstOut(numberList)
+            process.fifo(numberList)
             process.shortestJobFirst(numberList)
             process.roundRobin(numberList)
