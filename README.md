@@ -125,5 +125,8 @@ mensagens trocadas passam por toda a pilha de protocolos como se estivessem send
 máquina).
 
 # Instruções de compilação
-.
+python version: 3.9.2
+python kernel.py $1 $path/file
 
+$1 = module  $path = "test file path"
+module: 1 = process, 2 = memory, 3 = in/out
