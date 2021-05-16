@@ -12,5 +12,5 @@ class Reader():
             process = pm.Process()
             numberList = process.manipulableContent(fileName)
             process.fifo(numberList)
-            process.shortestJobFirst(numberList)
+            process.sjf(numberList)
             process.roundRobin(numberList)
