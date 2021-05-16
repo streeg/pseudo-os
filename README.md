@@ -23,7 +23,7 @@ In this module, the team must implement a set of CPU scheduling algorithms and w
 - SJF: Shortest Job First
 - RR: Round Robin (with quantum = 2)
 
-The process management module should read from the standard input a list of processes with their arrival times and duration, and a table containing the values ​​for the following metrics:
+The process management module should read from the standard input a list of processes with their arrival times and duration, and a table containing the values for the following metrics:
 
 - Average total process execution time - turnaround;
 - Average response time;
