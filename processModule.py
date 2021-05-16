@@ -8,21 +8,20 @@ class Process():
         file = open(fileName, "r")
         fileLines = file.readlines()
         processInfo = [(x.strip()).split('\n') for x in fileLines]
-        list_of_integers = []
+        listOfNumbers = []
         for line in processInfo:
             for stringNumber in line:
-                a_list = stringNumber.split()
-                map_object = map(int, a_list)
-                list_of_integers += list(map_object)
-        return list_of_integers
+                mapObject = map(int, stringNumber.split())
+                listOfNumbers.append(list(mapObject))
+        return listOfNumbers
 
-    def firstInFirstOut(self, fileName):
+    def firstInFirstOut(self, listOfNumbers):
         print("firstInFirstOut algorithm")
 
     
-    def shortestJobFirst(self, fileName):
+    def shortestJobFirst(self, listOfNumbers):
         print("shortestJobFirst algorithm")    
 
     
-    def roundRobin(self, fileName):
+    def roundRobin(self, listOfNumbers):
         print("roundRobin algorithm")    
