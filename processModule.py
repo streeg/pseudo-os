@@ -1,5 +1,5 @@
 import sys
 class Process():
     
-    def printProcess(self):
-        print("process")
+    def receiveContent(processObject, processNumber):
+        print(processNumber)
