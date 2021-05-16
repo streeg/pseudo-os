@@ -104,7 +104,7 @@ cilindros percorridos pela cabeça de leitura para atender todas as requisiçõe
 ### Estrutura do Programa
 Espera-se que o programa seja estruturado em, pelo menos, quatro grandes módulos: kernel,
 processo, memória e entrada/saída. Esses modelos devem ser:
--Módulo Kernel – contém as chamadas para os demais módulos.
+- Módulo Kernel – contém as chamadas para os demais módulos.
 - Módulo de Processos – classes e estruturas de dados relativas ao processo. Basicamente,
 mantém informações específicas do processo.
 - Módulo de Memória – provê uma interface de abstração de memória RAM.
