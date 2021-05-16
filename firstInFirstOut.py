@@ -37,6 +37,7 @@ class firstInFirstOut:
         wTime = firstInFirstOut.calculateWaitingTime(self, processData)
         rTime = firstInFirstOut.calculateResponseTime(self, processData)
         firstInFirstOut.printData(self, processData, tTime, wTime, rTime)
+        firstInFirstOut.printDataVerbose(self, processData)
 
     def calculateTurnaroundTime(self, processData):
         totalTurnaroundTime = 0
@@ -58,7 +59,6 @@ class firstInFirstOut:
 
     def calculateResponseTime(self, processData):
         totalResponseTime = 0
-        print(processData)
         for i in range(len(processData)):
             responseTime = processData[i][5]
             totalResponseTime = totalResponseTime + responseTime
@@ -71,3 +71,17 @@ class firstInFirstOut:
         print(f'Average Turnaround Time: {averageTurnaroundTime}')
         print(f'Average Waiting Time: {averageWaitingTime}')
         print(f'Average Response Time: {averageResponseTime}')
+    
+    def printDataVerbose(self, processData):
+        print("FIFO:")
+        for i in range(len(processData)):
+
+            print("Running process", end = " [") 
+            print(processData[i][0], end = "] ")
+            print("from", end = " [") 
+            if(i != 0):
+                print(processData[i-1][3], end = "] ")
+            else:
+                print("0", end = "] ")
+            print("to", end = " [") 
+            print(processData[i][3], end = "]\n")            
