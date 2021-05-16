@@ -11,3 +11,12 @@ import fileReader as fr
 
 reader = fr.Reader()
 reader.readModule()
+
+
+
+
+
+
+
+inout = iom.Inout()
+inout.printInout()
