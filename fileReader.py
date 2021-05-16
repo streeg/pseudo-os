@@ -13,4 +13,4 @@ class Reader():
             numberList = process.manipulableContent(fileName)
             process.fifo(numberList)
             process.sjf(numberList)
-            process.roundRobin(numberList)
+            process.rr(numberList)
