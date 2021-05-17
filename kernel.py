@@ -8,9 +8,3 @@ import fileReader as fr
 
 reader = fr.Reader()
 reader.readModule()
-
-
-
-
-memory = mm.Memory()
-memory.printMemory()
