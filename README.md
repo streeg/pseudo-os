@@ -1,132 +1,92 @@
-# Orientações gerais
+# Disclaimer
 
-O trabalho de implementação da disciplina de SO (UnB), a ser desenvolvido em grupo com quatro
-componentes (Boris Marinho, Guilherme Andreúce, Pedro Henrique e Roberta Costa) compreenderá as seguintes fases:
-- Estudo teórico relacionado ao assunto do trabalho;
-- Apresentação da solução teórica dada ao problema;
-- Implementação da solução proposta;
-- Apresentação e explicação detalhada do código-fonte implementado;
-- Relatório explicando o processo de construção e o uso da aplicação.
+The implementation work of the discipline of Operational Systems (UNB), shown below was developed in a group (Boris Marinho, Guilherme Andreúce, Pedro Henrique and Roberta Costa).
 
-# Orientações específicas
-## Problema
-Implementação de um pseudo-SO multiprogramado, composto por um Gerenciador de Processos,
-por um Gerenciador de Memória e por um Gerenciador de Entrada/Saída. O gerenciador de processos
-deve ser capaz de aplicar o algoritmo de escalonamento definido por meio de parâmetro pelo usuário do SO.
-O gerenciador de memória deve garantir que um processo não acesse as regiões de memória de um outro
-processo, e que o algoritmo de substituição de página seja adequadamente usado. E o gerenciador de
-entrada/saída deve ser responsável por administrar o algoritmo especificado para a busca em disco. Cada
-módulo será testado de acordo com as especificações determinadas abaixo. Além disso, o pseudo-SO deve
-receber como parâmetro um inteiro e um arquivo texto, por exemplo $ 1 processes.txt. O inteiro determina
-qual módulo deve ser ativado (no exemplo dado significa que será ativado o módulo de processos, pois foi o
-inteiro 1), e o arquivo texto (com extensão .txt) repassa os dados de entrada necessários para a execução do
-módulo escolhido. Os detalhes para a implementação desse pseudo-SO são descritos nas próximas seções.
+## Problem
+Implementation of a multiprogrammed pseudo-SO, composed of a Process Manager, a Memory Manager and an Input / Output Manager.
+The process manager must be able to apply the scheduling algorithm defined by parameter by the OS user.
 
-### Módulo de Gerência de Processos
-Neste módulo a equipe deve implementar um conjunto de algoritmos de escalonamento de CPU e escrever
-um programa que calcula uma série de estatísticas baseada nestes algoritmos. Os algoritmos de
-escalonamento a serem implementados são os seguintes:
+The memory manager must ensure that one process does not access the memory regions of another process, and that the page replacement algorithm is used properly. 
+
+The input / output must be responsible for administering the algorithm specified for the disk search.
+
+Each module will be tested according to the specifications determined in the example files. 
+
+In addition, the pseudo-SO must receive as an parameter an integer and a text file, for example $1 processes.txt. The integer determines which module should be activated (in the example given it means that the process module will be activated, as it was the integer 1), and the text file (with .txt extension) passes on the necessary input data for the execution of the chosen module. 
+
+The details for implementing this pseudo-SO are described in the following sections.
+
+### Process Management Module
+In this module, the team must implement a set of CPU scheduling algorithms and write a program that calculates a series of statistics based on these algorithms. The algorithms for scheduling to be implemented are as follows:
+
 - FIFO: First-In, First-Out
 - SJF: Shortest Job First
-- RR: Round Robin (com quantum = 2)
-O módulo de gerência de processos deverá ler da entrada padrão uma lista de processos com seus
-respectivos tempos de chegada e de duração, e deverá imprimir na saída padrão uma tabela contendo os
-valores para as seguintes métricas:
-- Tempo médio de execução total do processo - turnaround;
-- Tempo médio de resposta;
-- Tempo médio de espera.
-Tempo de execução total do processo é a quantidade de tempo necessária para executar totalmente um
-processo, ou seja, é o tempo total entre a criação de um processo e seu término. Tempo de resposta é a
-quantidade de tempo entre a requisição de execução de um programa (quando ele é colocado na fila de
-pronto) e o seu tempo de ir para a execução (sistema de compartilhamento de tempo), isso significa que é o
-tempo que o processo demora para produzir cada resposta a uma requisição (assim, vamos considerar que é
-o tempo decorrido entre uma ida e outra para a CPU. Essa métrica é importante para processos interativos).
-E tempo de espera é a quantidade total de tempo que um processo aguardou na fila de prontos esperando
-para ser escalonado, ou seja, é o tempo que processo ficou esperando na fila de prontos. 
+- RR: Round Robin (with quantum = 2)
 
-#### Descrição da Entrada do Módulo de Gerência de Processos
-O arquivo texto é composto por uma série de pares de números inteiros separados por um espaço em branco
-indicando o tempo de chegada e a duração de cada processo. A entrada termina com o fim do arquivo. A
-ativação deste módulo deve ser com os parâmetros $ <executável> 1 <nomeArquivoTexto.txt>
+The process management module should read from the standard input a list of processes with their arrival times and duration, and a table containing the values for the following metrics:
 
-#### Descrição da Saída do Módulo de Gerência de Processos
-A saída é composta por linhas contendo a sigla de cada um dos três algoritmos e os valores das três métricas
-solicitadas. Cada linha apresenta a sigla do algoritmo e os valores médios (com uma casa decimal) para tempo total de
-execução, tempo de resposta e tempo de espera, exatamente nesta ordem, separados por um espaço em
-branco.
+- Average total process execution time - turnaround;
+- Average response time;
+- Average waiting time.
 
-#### Módulo de Gerência de Memória
-Neste módulo a equipe deve escrever um programa para simular o funcionamento dos principais algoritmos
-de substituição de páginas estudados na disciplina. Os algoritmos de substituição de páginas a serem
-implementados são os seguintes:
+Total process execution time is the amount of time needed to fully execute a process, that is, the total time between the creation of a process and its completion. 
+
+Response time is the amount of time between a program's execution request (when it is placed in the ready queue) and its time to go to execution (time sharing system), this means that it is the time that the process takes time to produce each response to a request (so, let's assume it's the time elapsed between one trip and the other to the CPU. This metric is important for interactive processes).
+
+Waiting time is the total amount of time that a process waited in the ready queue waiting to be scheduled, that is, it is the time that the process waited in the ready queue.
+
+#### Description of the Process Management Module Entry
+The text file consists of a series of pairs of whole numbers separated by a blank space indicating the time of arrival and the duration of each process. The entry ends with the end of the file. The activation of this module must be with the parameters $ <executable> 1 <textTextName.txt>
+#### Description of the Process Management Module Output
+The output consists of lines containing the acronym for each of the three algorithms and the values of the three metrics requested. Each line shows the acronym of the algorithm and the average values (with one decimal place) for total execution time, response time and waiting time, exactly in that order, separated by a blank space.
+
+#### Memory Management Module
+In this module, the team must write a program to simulate the functioning of the main page replacement algorithms studied in the discipline. The page replacement algorithms to be implemented are as follows:
+
 - FIFO (First In, First Out);
-- Segunda Chance (com o bit R sendo zerado a cada 3 referências feitas à memória);
-- LRU: (Least Recently Used ou Menos Recentemente Utilizado).
-O programa deverá ler da entrada padrão um conjunto de número inteiros, dos quais o primeiro número
-representa a quantidade de quadros de memória disponíveis na RAM e os demais representam a sequência
-de referências às páginas, sempre um número por linha.
-Além disso, o programa deverá imprimir na saída o número de faltas de páginas obtido com a utilização de
-cada um dos algoritmos.
+- Second Chance (with the R bit being reset after every 3 references to memory);
+- LRU: (Least Recently Used or Least Recently Used).
 
-#### Descrição da Entrada para o Módulo de Gerência de Memória
-A entrada é composta por uma série de números inteiros, um por linha, indicando, primeiro a quantidade de
-quadros (frames) disponíveis na memória RAM e, em seguida, a sequência de referências à memória. A
-ativação deste módulo deve ser com os parâmetros $ <executável> 2 <nomeArquivoTexto.txt>
+The program should read from the standard input a set of integers, of which the first number represents the number of memory frames available in RAM and the others represent the sequence of references to the pages, always one number per line.
 
-#### Descrição da Saída para o Módulo de Gerência de Memória
-A saída é composta por linhas contendo a sigla de cada um dos três algoritmos e a quantidade de faltas de
-página obtidas com a utilização de cada um deles.
+In addition, the program must print on the output the number of missing pages obtained with the use of each of the algorithms.
 
-#### Módulo de Gerência de Entrada/Saída
-Neste módulo a equipe deve escrever um programa para simular o funcionamento dos principais algoritmos
-de escalonamento de disco estudados na disciplina. Os algoritmos de escalonamento de disco a serem
-implementados são os seguintes:
+#### Description of the Entry for the Memory Management Module
+The entry consists of a series of integers, one per line, indicating, first, the number of frames (frames) available in the RAM memory, and then the sequence of references to the memory. The activation of this module must be with the parameters $ <executable> 2 <textFileName.txt>
+#### Output Description for the Memory Management Module
+The output consists of lines containing the acronym for each of the three algorithms and the number of page faults obtained using each of them.
+
+#### Input / Output Management Module
+In this module, the team must write a program to simulate the operation of the main disk scheduling algorithms studied in the discipline. The disk scheduling algorithms to be implemented are as follows:
+
 - FCFS (First Come, First Serve);
-- SSF (ou SSTF – braço inicialmente para baixo);
+- SSF (or SSTF - arm initially downwards);
 - SCAN.
-O programa deverá ler da entrada padrão um conjunto de número inteiros, no qual o primeiro número
-representa a quantidade de cilindros no disco, o segundo número representa o cilindro sobre o qual a cabeça
-de leitura do disco está inicialmente posicionada, e os demais representam uma sequência de requisições de
-acesso a serem atendidas, sempre um número por linha.
-O programa deverá imprimir na saída o número total de cilindros percorridos pela cabeça de leitura para
-atender todas as requisições solicitadas utilizando cada um dos algoritmos.
 
-#### Descrição da Entrada do Módulo de Entrada/Saída
-A entrada é composta por uma série de números inteiros, um por linha, indicando, primeiro o número do
-último cilindro no disco (os cilindros variam de 0 até este número), o cilindro sobre o qual a cabeça de leitura
-está inicialmente posicionada e a sequência de requisições de acesso. A ativação deste módulo deve ser
-com os parâmetros $ <executável> 3 <nomeArquivoTexto.txt>
+The program should read from the standard input a set of integers, in which the first number represents the number of cylinders on the disk, the second number represents the cylinder on which the disk's reading head is initially positioned, and the others represent a sequence of access requests to be answered, always one number per line.
 
-#### Descrição da Saída do Módulo de Entrada/Saída
-A saída é composta por linhas contendo a sigla de cada um dos três algoritmos e a quantidade total de
-cilindros percorridos pela cabeça de leitura para atender todas as requisições de acesso ao disco.
+The program should print at the output the total number of cylinders traveled by the reading head to meet all the requested requests using each of the algorithms.
+#### Input / Output Module Input Description
+The entry consists of a series of integers, one per line, indicating, first, the number of the last cylinder on the disk (the cylinders vary from 0 to this number), the cylinder on which the reading head is initially positioned and the sequence of access requests. The activation of this module must be with the parameters $ <executable> 3 <textFileName.txt>
 
-### Estrutura do Programa
-Espera-se que o programa seja estruturado em, pelo menos, quatro grandes módulos: kernel,
-processo, memória e entrada/saída. Esses modelos devem ser:
-- Módulo Kernel – contém as chamadas para os demais módulos.
-- Módulo de Processos – classes e estruturas de dados relativas ao processo. Basicamente,
-mantém informações específicas do processo.
-- Módulo de Memória – provê uma interface de abstração de memória RAM.
-- Módulo de Entrada/Saída – trata a alocação do braço do disco para realização de escrita/leitura
-nos blocos do disco para os processos.
-É importante ressaltar também que outros módulos podem ser utilizados, caso sejam necessários.
+#### Input / Output Module Output Description
+The output consists of lines containing the acronym for each of the three algorithms and the total number of cylinders traveled by the read head to meet all requests for access to the disk.
 
-### Estudo Teórico para a Solução
-Cada equipe deverá buscar a solução para o compartilhamento de recursos e a sincronização de
-processos (ou threads), quando se fizer necessário, de acordo com o problema proposto. É responsabilidade
-de cada grupo estudar a maneira mais eficiente para implementar o pseudo-SO. Contudo, é importante
-ressaltar que para o problema de compartilhamento de recursos não há soluções mágicas, as soluções
-possíveis são exatamente as mesmas vistas em sala de aula: semáforos (baixo nível), monitores (alto nível,
-mas devem ser implementados pela linguagem de programação, pois o compilador deve reconhecer o tipo
-monitor) e troca de mensagens (usadas preferencialmente para garantir a sincronização entre processos em
-máquinas diferentes, também podem ser usadas para processos na mesma máquina. Nesse caso, as
-mensagens trocadas passam por toda a pilha de protocolos como se estivessem sendo enviadas para outra
-máquina).
+### Program Structure
+The program is expected to be structured in at least four major modules: kernel, process, memory and input / output. These models should be:
 
-# Instruções de compilação
+- Kernel module - contains the calls for the other modules.
+- Process Module - classes and data structures related to the process. Basically, it keeps information specific to the process.
+- Memory Module - provides a RAM memory abstraction interface.
+- Input / Output Module - deals with the allocation of the disk arm for writing / reading in the disk blocks for the processes.
+
+It is also important to emphasize that other modules can be used, if necessary.
+
+# Build instructions
 python version: 3.9.2
 python kernel.py $1 $path/file
 
 $1 = module  $path = "test file path"
 module: 1 = process, 2 = memory, 3 = in/out
+
+example: python3 kernel.py 1 processes/test/processes.txt
