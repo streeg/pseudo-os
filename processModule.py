@@ -3,6 +3,7 @@
 import sys
 import firstInFirstOut as ff
 import shortestJobFirst as sjf
+import roundRobin as rr
 class Process():
     
     def receiveContent(self, processNumber):
@@ -30,5 +31,6 @@ class Process():
         shortestJobFirst.processData(listOfNumbers)
 
     
-    def roundRobin(self, listOfNumbers):
-        print("roundRobin algorithm")    
+    def rr(self, listOfNumbers):
+        roundRobin = rr.RoundRobin()
+        roundRobin.processData(listOfNumbers)
