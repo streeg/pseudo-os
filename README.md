@@ -88,3 +88,5 @@ python kernel.py $1 $path/file
 
 $1 = module  $path = "test file path"
 module: 1 = process, 2 = memory, 3 = in/out
+
+example: python3 kernel.py 1 processes/test/processes.txt

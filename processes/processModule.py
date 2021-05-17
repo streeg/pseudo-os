@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import firstInFirstOut as ff
-import shortestJobFirst as sjf
-import roundRobin as rr
+from processes import firstInFirstOut as ff
+from processes import shortestJobFirst as sjf
+from processes import roundRobin as rr
 class Process():
     
     def receiveContent(self, processNumber):

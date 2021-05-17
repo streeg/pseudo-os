@@ -37,6 +37,9 @@ class firstInFirstOut:
         wTime = firstInFirstOut.calculateWaitingTime(self, processData)
         rTime = firstInFirstOut.calculateResponseTime(self, processData)
         firstInFirstOut.printData(self, processData, tTime, wTime, rTime)
+        print()
+        print()
+        print()
         firstInFirstOut.printDataVerbose(self, processData)
 
     def calculateTurnaroundTime(self, processData):

@@ -72,6 +72,9 @@ class shortestJobFist:
         wTime = shortestTime = shortestJobFist.calculateWaitingTime(self, processData)
         rTime = shortestJobFist.calculateResponseTime(self, processData)
         shortestTime = shortestJobFist.printData(self, processData, tTime, wTime, rTime)
+        print()
+        print()
+        print()
         shortestJobFist.printDataVerbose(self, processData)
 
     def calculateTurnaroundTime(self, processData):
@@ -111,7 +114,6 @@ class shortestJobFist:
     
     def printDataVerbose(self, processData):
         processData.sort(key=lambda x: x[4])
-        print(processData)
         print("shortestJobFist:")
         for i in range(len(processData)):
 

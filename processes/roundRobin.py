@@ -28,9 +28,7 @@ class RoundRobin:
         readyQueue = []
         sTime = 0
         processData.sort(key=lambda x: x[1])
-        '''
-        Sort processes according to the Arrival Time
-        '''
+        #Sort processes according to the Arrival Time
         while 1:
             normalQueue = []
             temp = []
@@ -41,23 +39,17 @@ class RoundRobin:
                         for k in range(len(readyQueue)):
                             if processData[i][0] == readyQueue[k][0]:
                                 present = 1
-                    '''
-                    The above if loop checks that the next process is not a part of readyQueue
-                    '''
+                    #The above if loop checks that the next process is not a part of readyQueue
                     if present == 0:
                         temp.extend([processData[i][0], processData[i][1], processData[i][2], processData[i][4]])
                         readyQueue.append(temp)
                         temp = []
-                    '''
-                    The above if loop adds a process to the readyQueue only if it is not already present in it
-                    '''
+                    #The above if loop adds a process to the readyQueue only if it is not already present in it
                     if len(readyQueue) != 0 and len(executedProcess) != 0:
                         for k in range(len(readyQueue)):
                             if readyQueue[k][0] == executedProcess[len(executedProcess) - 1]:
                                 readyQueue.insert((len(readyQueue) - 1), readyQueue.pop(k))
-                    '''
-                    The above if loop makes sure that the recently executed process is appended at the end of readyQueue
-                    '''
+                    #The above if loop makes sure that the recently executed process is appended at the end of readyQueue
                 elif processData[i][3] == 0:
                     temp.extend([processData[i][0], processData[i][1], processData[i][2], processData[i][4]])
                     normalQueue.append(temp)
@@ -66,9 +58,7 @@ class RoundRobin:
                 break
             if len(readyQueue) != 0:
                 if readyQueue[0][2] > quantum:
-                    '''
-                    If process has remaining burst time greater than the time slice, it will execute for a time period equal to time slice and then switch
-                    '''
+                    #If process has remaining burst time greater than the time slice, it will execute for a time period equal to time slice and then switch
                     startTime.append(sTime)
                     sTime = sTime + quantum
                     eTime = sTime
@@ -80,9 +70,7 @@ class RoundRobin:
                     processData[j][2] = processData[j][2] - quantum
                     readyQueue.pop(0)
                 elif readyQueue[0][2] <= quantum:
-                    '''
-                    If a process has a remaining burst time less than or equal to time slice, it will complete its execution
-                    '''
+                    #If a process has a remaining burst time less than or equal to time slice, it will complete its execution
                     startTime.append(sTime)
                     sTime = sTime + readyQueue[0][2]
                     eTime = sTime
@@ -99,9 +87,7 @@ class RoundRobin:
                 if sTime < normalQueue[0][1]:
                     sTime = normalQueue[0][1]
                 if normalQueue[0][2] > quantum:
-                    '''
-                    If process has remaining burst time greater than the time slice, it will execute for a time period equal to time slice and then switch
-                    '''
+                    #If process has remaining burst time greater than the time slice, it will execute for a time period equal to time slice and then switch
                     startTime.append(sTime)
                     sTime = sTime + quantum
                     eTime = sTime
@@ -112,9 +98,7 @@ class RoundRobin:
                             break
                     processData[j][2] = processData[j][2] - quantum
                 elif normalQueue[0][2] <= quantum:
-                    '''
-                    If a process has a remaining burst time less than or equal to time slice, it will complete its execution
-                    '''
+                    #If a process has a remaining burst time less than or equal to time slice, it will complete its execution
                     startTime.append(sTime)
                     sTime = sTime + normalQueue[0][2]
                     eTime = sTime
@@ -129,6 +113,9 @@ class RoundRobin:
         tTime = RoundRobin.calculateTurnaroundTime(self, processData)
         wTime = RoundRobin.calculateWaitingTime(self, processData)
         RoundRobin.printData(self, processData, tTime, wTime, quantum)
+        print()
+        print()
+        print()
         RoundRobin.printDataVerbose(self, executedProcess, quantum)
 
     def calculateTurnaroundTime(self, processData):
