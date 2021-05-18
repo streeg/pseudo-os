@@ -37,3 +37,10 @@ class Reader():
             print()
             print("Done!")
             print("See you next time!")
+
+        if(chosenModule == "2" and fileName == "memory/memory.txt"):
+            memoria = mm.Memory()
+            nr_frames,numberList = memoria.getPages(fileName) # get number of frames availables and pages to be referenced
+            memoria.fifo(nr_frames,numberList)
+            memoria.sc(fileName)
+            memoria.lru(nr_frames,numberList)
