@@ -37,3 +37,7 @@ class Reader():
             print()
             print("Done!")
             print("See you next time!")
+
+        if(chosenModule == "3" and fileName == "in-out/inout.txt"):
+            inout = iom.Inout()
+            inout.scan(fileName)
