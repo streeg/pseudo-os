@@ -1,9 +1,0 @@
-#Exemplo saída
-
-A saída é composta por linhas contendo a sigla de cada um dos três algoritmos e a quantidade de faltas de página obtidas com a utilização de cada um deles.   
-
----------------------------------------
-
-FIFO 10
-SC 10
-LRU 8
