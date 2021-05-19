@@ -41,6 +41,7 @@ class Reader():
                 print()
                 print("Done!")
                 print("See you next time!")
+                return 0
 
             if(chosenModule == "2" and fileName == "memory/test/memory.txt"):
                 print("Loading memory module...")            
@@ -69,6 +70,7 @@ class Reader():
                 print()
                 print("Done!")
                 print("See you next time!")
+                return 0
 
 
             if(chosenModule == "3" and fileName == "inout/test/inout.txt"):
@@ -97,6 +99,7 @@ class Reader():
                 print()
                 print("Done!")
                 print("See you next time!")
+                return 0
             else:
                 print("Error! Try again.")
                 print("Remember the syntax should be:\n<python3 kernel.py $module $path>\n")
