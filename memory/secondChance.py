@@ -20,9 +20,7 @@ class secondChance:
         def manageRBit(pages):
 
             while pages[0][1] != 0:
-                pages[0][2] += 1
-                if pages[0][2] == 3:
-                    pages[0][1] = 0
+                pages[0][1] = 0
                 pages.append(pages[0])
                 del(pages[0])
             
@@ -33,27 +31,32 @@ class secondChance:
         total_frames = int(lines[0])
         pages = []
         fault = 0
-
+        three = 0
         for line in lines[1:]:
             process = int(line)
-
+            three += 1
+            if three == 3:
+                for page in pages:
+                    page[1] = 0
+                three = 0
+                
             if len(pages) < total_frames:
                 if processExists(process, pages):
                     i = processIndex(process, pages)
                     pages[i][1] = 1
-                    pages[i][2] = 0
+                    
                 else:
                     fault += 1
-                    pages.append([process, 1, 0])
+                    pages.append([process, 1])
             
             else:
                 if processExists(process, pages):
                     i = processIndex(process, pages)
                     pages[i][1] = 1
-                    pages[i][2] = 0
+                    
                 else:
                     fault += 1
                     manageRBit(pages)
-                    pages.append([process, 1, 0])  
+                    pages.append([process, 1])  
         fp.close()
         print('SC ', fault)
