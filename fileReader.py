@@ -4,7 +4,7 @@ import numpy as np
 
 from processes import processModule as pm
 from memory import memoryModule as mm
-import inoutModule  as iom
+from inout import inoutModule  as iom
 
 
 class Reader():
@@ -69,7 +69,28 @@ class Reader():
             print("Done!")
             print("See you next time!")
 
-            
-        if(chosenModule == "3" and fileName == "in-out/inout.txt"):
+
+        if(chosenModule == "3" and fileName == "inout/test/inout.txt"):
+            print("Loading In Out module...")   
             inout = iom.Inout()
+            print("In Out loaded successfully!")
+            print("Getting numbers from filename...")
+            print("Done!")
+            print()
+            print("--------------------------------------------------------------------------")
+            print()
+            getchar =  (input("Press enter to parse using First Come First Serve"))
+            print()
+            print("--------------------------------------------------------------------------")
+            print()
+            getchar =  (input("Press enter to parse using Shortest Seek Time First"))
+            print()
+            print("--------------------------------------------------------------------------")
+            print()
+            getchar =  (input("Press enter to parse using Elevator Algorithm (SCAN)"))
             inout.scan(fileName)
+            print()
+            print("--------------------------------------------------------------------------")
+            print()
+            print("Done!")
+            print("See you next time!")
